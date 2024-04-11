@@ -23,12 +23,12 @@ DIGITALFORGE - test project</p>
   <li>Browse to one of the following links:       http://127.0.0.1       http://localhost</li>
 </ol>
 
-![1](static/image/admin-1.jpg)
-![1](static/image/admin-2.jpg)
-![1](static/image/admin-3.jpg)
-![1](static/image/admin-4.jpg)
-![1](static/image/admin-5.jpg)
-![1](static/image/1.jpg)
-![1](static/image/2.jpg)
-![1](static/image/3.jpg)
-![1](static/image/4.jpg)
+![1](static/img/admin-1.png)
+![2](static/img/admin-2.png)
+![3](static/img/admin-3.png)
+![4](static/img/admin-4.png)
+![5](static/img/admin-5.png)
+![6](static/img/1.png)
+![7](static/img/2.png)
+![8](static/img/3.png)
+![9](static/img/4.png)
