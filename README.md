@@ -63,11 +63,11 @@ DIGITALFORGE - test project</p>
 </ol>
 
 ![1](static/img/admin-1.png)
-<!-- ![2](static/img/admin-2.png)
+![2](static/img/admin-2.png)
 ![3](static/img/admin-3.png)
 ![4](static/img/admin-4.png)
 ![5](static/img/admin-5.png)
 ![6](static/img/1.png)
 ![7](static/img/2.png)
 ![8](static/img/3.png)
-![9](static/img/4.png) -->
+![9](static/img/4.png)
