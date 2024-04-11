@@ -7,6 +7,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth.views import LogoutView
+
 
 from .forms import LoginForm
 
@@ -34,5 +36,23 @@ class LoginView(FormView):
 
 
 
+@login_required
+def main_page(request):
+    email = request.user.email
+    return render(request, 'main_page.html', {'email': email})
+
+
+def user_logout(request):
+    if request.user.is_authenticated:
+        logout(request)
+    return redirect('main_page')
+
+
+
 class MainPage(TemplateView):
     template_name = "main_page.html"
+
+
+
+class MyDeals(TemplateView):
+    template_name = "my_deals.html"

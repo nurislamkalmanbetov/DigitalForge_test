@@ -5,6 +5,7 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from .managers import UserManager
 
+from django.conf import settings
 
 
 
@@ -30,6 +31,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class SalesManager(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='manager_profile', null=True)
     full_name = models.CharField(max_length=100, verbose_name='ФИО')
     phone = models.CharField(max_length=20, verbose_name='Телефон')
     email = models.EmailField(verbose_name='Почта')

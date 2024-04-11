@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Мои сделки
+{% endblock %}
+
+{% block content %}
+    <nav id="menu" class="navbar navbar-default navbar-fixed-top" style="background-color: #333; border-color: #333;">
+      <div class="container"> 
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="border-color: #fff;"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar" style="background-color: #fff;"></span> <span class="icon-bar" style="background-color: #fff;"></span> <span class="icon-bar" style="background-color: #fff;"></span> </button>
+          <a class="navbar-brand page-scroll" href="#page-top" style="color: #fff;">DigitalForge</a> </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'my_deals' %}" class="page-scroll" style="color: #fff;">Мои сделки</a></li>
+            <li><a href="{% url 'logout' %}" class="page-scroll" style="color: #fff;">Выйти</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse --> 
+      </div>
+    </nav>
+
+
+    <div id="about">
+        <div class="container">
+            <div class="section-title text-center center">
+                <h2>Мои Сделки</h2>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="about-text">
+                        <h3>{{ user.manager_profile.full_name }}</h3>
+                        <h3>Мои Сделки:</h3>
+                        {% for deal in user.manager_profile.apartment_set.all %}
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Номер квартиры: {{ deal.number }}</h4>
+                                <p class="card-text"><strong>Объект:</strong> {{ deal.housing_object.title }}</p>
+                                <p class="card-text"><strong>Статус:</strong> {{ deal.get_booking_status_display }}</p>
+                                <p class="card-text"><strong>Этаж:</strong> {{ deal.floor }}</p>
+                                <p class="card-text"><strong>Тип квартиры:</strong> {{ deal.get_type_display }}</p>
+                                <p class="card-text"><strong>Цена:</strong> {{ deal.price }}</p>
+                                <p class="card-text"><strong>Клиент:</strong> {{ deal.client }}</p>
+                                <p class="card-text"><strong>Номер телефона клиента:</strong> {{ deal.phone_number_customer }}</p>
+                                <p class="card-text"><strong>Номер контракта:</strong> {{ deal.number_contract }}</p>
+                                <p class="card-text"><strong>Менеджер продаж:</strong> {{ deal.sales_manager.full_name }}</p>
+                            </div>
+                        </div>
+                        <br> <!-- Add some space between cards -->
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+{% endblock %}
