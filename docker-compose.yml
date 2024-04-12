@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:15
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${NAME_DB}
+      POSTGRES_USER: ${USER_DB}
+      POSTGRES_PASSWORD: ${PASSWORD_DB}
+    restart: always
+    ports:
+      - "5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: . 
+    restart: always
+    command: bash -c "python manage.py collectstatic --no-input && python manage.py migrate && python manage.py runserver 0.0.0.0:8001"
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    depends_on:
+      - db 
+    volumes:
+      - .:/app
+
+volumes:
+  pgdata:
